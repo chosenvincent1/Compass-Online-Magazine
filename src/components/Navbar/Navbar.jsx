@@ -1,12 +1,13 @@
 import React from 'react';
+import {FaInstagram, FaFacebook, FaYoutube, FaTwitter, FaSearch, FaBars} from 'react-icons/fa';
 
 export default function Navbar() {
     return (
         <nav className='h-[250px] w-full bg-[#FFFFFF] flex flex-col justify-end font-Montserrat'>
             <section className=' flex justify-between px-[135px] mb-[51px] '>
                 <div className='flex gap-[31px] items-end'>
-                    <img className='h-[16.66px] w-[16.66px]' src="../images/menu-icon.png" alt="Menu" />
-                    <img className='h-[16.66px] w-[16.66px]' src="../images/search.png" alt="Search" />
+                    <FaBars className='h-[16.66px] w-[16.66px] cursor-pointer' />
+                    <FaSearch className='h-[16.66px] w-[16.66px] cursor-pointer ' />
                 </div>
 
                 <div className='flex w-[527px] h-[100.08px] flex-col items-center uppercase'>
@@ -14,10 +15,10 @@ export default function Navbar() {
                 </div>
 
                 <div className='flex gap-[21.34px] items-end '>
-                    <img className='h-[16.66px] w-[16.66px]' src="../images/instagram.png" alt="Instagram" />
-                    <img className='h-[16.66px] w-[16.66px]' src="../images/twitter-icon.png" alt="Twitter" />
-                    <img className='h-[16.66px] w-[16.66px]' src="../images/facebook.png" alt="Facebook" />
-                    <img className='h-[16.66px] w-[16.66px]' src="../images/youtube.png" alt="YouTube" />
+                    <FaInstagram className='h-[16.66px] w-[16.66px] cursor-pointer ' />
+                    <FaTwitter className='h-[16.66px] w-[16.66px] cursor-pointer' />
+                    <FaFacebook className='h-[16.66px] w-[16.66px] cursor-pointer' />
+                    <FaYoutube className='h-[16.66px] w-[16.66px] cursor-pointer' />
                 </div>
             </section>
 
