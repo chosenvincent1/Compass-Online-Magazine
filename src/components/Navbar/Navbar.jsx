@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Navbar() {
     return (
-        <nav className='h-[250px] w-full bg-[#FFFFFF] flex flex-col justify-end'>
-            <section className='font-Montserrat flex justify-between px-[135px] mb-[51px] '>
+        <nav className='h-[250px] w-full bg-[#FFFFFF] flex flex-col justify-end font-Montserrat'>
+            <section className=' flex justify-between px-[135px] mb-[51px] '>
                 <div className='flex gap-[31px] items-end'>
                     <img className='h-[16.66px] w-[16.66px]' src="../images/menu-icon.png" alt="Menu" />
                     <img className='h-[16.66px] w-[16.66px]' src="../images/search.png" alt="Search" />
