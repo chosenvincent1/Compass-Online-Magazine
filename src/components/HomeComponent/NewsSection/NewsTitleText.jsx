@@ -7,7 +7,7 @@ export default function NewsTitleText(){
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover'
         }} className="h-[180px] w-[180px] flex items-center justify-center font-Montserrat ">
-            <p className="text-[100px] font-Chonburi font-[400] ">T</p>
+            <p className="text-[100px] font-Chonburi uppercase font-[400] ">t</p>
         </div>
     )
 }
