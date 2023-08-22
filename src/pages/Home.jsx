@@ -8,35 +8,43 @@ export default function HomePage(){
     const [home, setHome] = useState(null);
     const [business, setBusiness] = useState([]);
     const [technology, setTechnology] = useState([]);
+    const [food, setFood] = useState([]);
     const [world, setWorld] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        const getHomeNews = async ()=> {
+        const getTechNews = async ()=> {
             try {
-                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
 
-                console.log(response.data.results)
+                console.log(response.data)
     
                 if(response.status == 200){
-                    const businessArray = response.data.results.filter(item => item.section === 'business');
-                    setBusiness(businessArray);
-
-                    const technologyArray = response.data.results.filter(item=> item.section === 'technology');
-                    setTechnology(technologyArray);
-
-                    const worldArray = response.data.results.filter(item=> item.section === 'world');
-                    setWorld(worldArray);
-
-                    setHome(response.data.results);
+                    setTechnology(response.data.results);
                     setIsLoading(false);
                 }
             } catch (error) {
                 console.log(error)
             }
         }
-        getHomeNews()
+        getTechNews()
+    }, []);
+
+    useEffect(()=> {
+        const getFoodNews = async ()=> {
+            try {
+                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/food.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+
+                if(response.status == 200){
+                    setFood(response.data);
+                    setIsLoading(false);
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getFoodNews();
     }, []);
 
     if(isLoading) {
@@ -46,7 +54,7 @@ export default function HomePage(){
     return (
         <>
             <LandingPage />
-            <NewsSection business={business} world={world} technology={technology}   />
+            <NewsSection food={food} technology={technology}   />
             <NewsLetterComponent />
         </>
     )

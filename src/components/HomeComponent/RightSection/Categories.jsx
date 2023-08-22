@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export default function Categories(){
     return (
@@ -7,11 +8,11 @@ export default function Categories(){
             </div>
 
             <div className="uppercase flex flex-col gap-[20px] ">
-                <a href="">Technology</a>
-                <a href="">Business</a>
-                <a href="">Travel</a>
-                <a href="">Food</a>
-                <a href="">World</a>
+                <Link to="/technology">Technology</Link>
+                <Link to="/business">Business</Link>
+                <Link to="/travel">Travel</Link>
+                <Link to="/food">Food</Link>
+                <Link to="/world">World</Link>
             </div>
         </section>
     )

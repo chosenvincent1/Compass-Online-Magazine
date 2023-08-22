@@ -10,6 +10,7 @@ import Sports from './pages/Sports';
 import Health from './pages/Health';
 import Food from './pages/Food';
 import World from './pages/World';
+import Fashion from './pages/Fashion';
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/health' element={<Health /> } />
           <Route path='/world' element={<World /> } />
           <Route path='/sports' element={<Sports /> } />
+          <Route path='/fashion' element={<Fashion /> } />
         </Routes>
         
         <Footer />
