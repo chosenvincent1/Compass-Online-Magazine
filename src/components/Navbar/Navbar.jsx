@@ -1,5 +1,6 @@
 import React from 'react';
 import {FaInstagram, FaFacebook, FaYoutube, FaTwitter, FaSearch, FaBars} from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
     return (
@@ -23,16 +24,16 @@ export default function Navbar() {
             </section>
 
             <section className='flex gap-[37px] uppercase text-[14px] font-[500] text-[#000000] justify-between mb-[33px] px-[84px] '>
-                <a href="">HOME</a>
-                <a href="">TECHNOLOGY</a>
-                <a href="">SCIENCE</a>
-                <a href="">BUSINESS</a>
-                <a href="">TRAVEL</a>
-                <a href="">FOOD</a>
-                <a href="">HEALTH</a>
-                <a href="">SPORT</a>
-                <a href="">FASHION</a>
-                <a href="">WORLD</a>
+                <NavLink to="/">HOME</NavLink>
+                <NavLink to="/technology">TECHNOLOGY</NavLink>
+                <NavLink to="/science">SCIENCE</NavLink>
+                <NavLink to="/business">BUSINESS</NavLink>
+                <NavLink to="/travel">TRAVEL</NavLink>
+                <NavLink to="/food">FOOD</NavLink>
+                <NavLink to="/health">HEALTH</NavLink>
+                <NavLink to="/sports">SPORT</NavLink>
+                <NavLink to="/fashion">FASHION</NavLink>
+                <NavLink to="/world">WORLD</NavLink>
             </section>
         </nav>
     )
