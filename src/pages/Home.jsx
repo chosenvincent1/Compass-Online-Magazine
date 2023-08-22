@@ -7,6 +7,8 @@ import axios from "axios";
 export default function HomePage(){
     const [home, setHome] = useState(null);
     const [business, setBusiness] = useState([]);
+    const [technology, setTechnology] = useState([]);
+    const [world, setWorld] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -14,13 +16,18 @@ export default function HomePage(){
         const getHomeNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+
+                console.log(response.data.results)
     
-                console.log(response.data.results);
                 if(response.status == 200){
                     const businessArray = response.data.results.filter(item => item.section === 'business');
                     setBusiness(businessArray);
 
                     const technologyArray = response.data.results.filter(item=> item.section === 'technology');
+                    setTechnology(technologyArray);
+
+                    const worldArray = response.data.results.filter(item=> item.section === 'world');
+                    setWorld(worldArray);
 
                     setHome(response.data.results);
                     setIsLoading(false);
@@ -36,12 +43,10 @@ export default function HomePage(){
         return <div>Loading...</div>
     }
 
-    console.log(business)
-
     return (
         <>
             <LandingPage />
-            <NewsSection home={home} business={business} isLoading={isLoading}  />
+            <NewsSection business={business} world={world} technology={technology}   />
             <NewsLetterComponent />
         </>
     )

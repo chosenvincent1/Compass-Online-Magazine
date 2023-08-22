@@ -1,6 +1,7 @@
+import { prototype } from "postcss/lib/previous-map";
 
-export default function NewsTitleText({section}){
-    const titleLetter = section.charAt(0).toUpperCase();
+export default function NewsTitleText(props){
+    const titleLetter = props.firstItem.section.charAt(0).toUpperCase();
     return (
         <div style={{
             backgroundImage: 'url(../images/news-bg-1.png)',

@@ -1,5 +1,6 @@
 
-export default function TextTitle(){
+export default function TextTitle({firstItem}){
+    const sectionLetter = firstItem.section.charAt(0).toUpperCase();
     return (
         <div style={{
             backgroundImage: 'url(../images/news-bg-1.png)',
@@ -7,7 +8,7 @@ export default function TextTitle(){
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover'
         }} className="h-[180px] w-[180px] flex items-center justify-center font-Montserrat ">
-            <p className="text-[100px] font-Chonburi uppercase font-[400] ">T</p>
+            <p className="text-[100px] font-Chonburi uppercase font-[400] ">{sectionLetter}</p>
         </div>
     )
 }

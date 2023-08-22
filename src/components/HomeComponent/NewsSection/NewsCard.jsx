@@ -1,7 +1,7 @@
 
 export default function NewsCard(props){
     return (
-        <section className="flex gap-[20px] font-Montserrat w-[650px] h-[100px] ">
+        <section className="flex gap-[20px] mb-[30px] font-Montserrat w-[650px] h-[100px] ">
             <div className="w-[100px] h-[100px] bg-[#D2D8E1] ">
                 {/* <img src="" alt="" /> */}
             </div>
