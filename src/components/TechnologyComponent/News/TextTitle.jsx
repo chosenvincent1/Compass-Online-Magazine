@@ -1,6 +1,6 @@
 
-export default function TextTitle({firstItem}){
-    const sectionLetter = firstItem.section.charAt(0).toUpperCase();
+export default function TextTitle({firstNews}){
+    const sectionLetter = firstNews.section.charAt(0).toUpperCase();
     return (
         <div style={{
             backgroundImage: 'url(../images/news-bg-1.png)',

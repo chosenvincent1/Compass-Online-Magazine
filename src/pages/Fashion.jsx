@@ -32,7 +32,7 @@ export default function Fashion(){
     return (
         <>
             <FirstSection />
-            <News technology={fashion} />
+            <News news={fashion} />
             <NewsLetterComponent />
         </>
     )

@@ -5,7 +5,7 @@ import NewsLetterComponent from "../components/HomeComponent/NewsLetterComponent
 import axios from "axios";
 
 export default function Technology(){
-    const [technology, setTechnology] = useState(null);
+    const [news, setNews] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
@@ -13,9 +13,8 @@ export default function Technology(){
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
-                console.log(response.data.results);
                 if(response.status == 200){
-                    setTechnology(response.data.results);
+                    setNews(response.data.results);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -33,7 +32,7 @@ export default function Technology(){
     return (
         <>
             <FirstSection />
-            <News technology={technology} />
+            <News news={news} />
             <NewsLetterComponent />
         </>
     )

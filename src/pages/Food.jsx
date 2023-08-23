@@ -32,7 +32,7 @@ export default function Food(){
     return (
         <>
             <FirstSection />
-            <News technology={food} />
+            <News news={food} />
             <NewsLetterComponent />
         </>
     )

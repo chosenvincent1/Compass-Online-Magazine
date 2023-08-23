@@ -12,8 +12,9 @@ export default function Business(){
         const getHomeNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/business.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+
+                console.log(response.data.results)
     
-                console.log(response.data.results);
                 if(response.status == 200){
                     setBusiness(response.data.results);
                     setIsLoading(false);
@@ -32,7 +33,7 @@ export default function Business(){
     return (
         <>
             <FirstSection />
-            <News technology={business} />
+            <News news={business} />
             <NewsLetterComponent />
         </>
     )

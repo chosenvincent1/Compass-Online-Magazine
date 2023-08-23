@@ -9,7 +9,7 @@ export default function World(){
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        const getHomeNews = async ()=> {
+        const getWorldNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/world.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
@@ -22,7 +22,7 @@ export default function World(){
                 console.log(error)
             }
         }
-        getHomeNews()
+        getWorldNews()
     }, []);
 
     if(isLoading){
@@ -32,7 +32,7 @@ export default function World(){
     return (
         <>
             <FirstSection />
-            <News technology={world} />
+            <News news={world} />
             <NewsLetterComponent />
         </>
     )

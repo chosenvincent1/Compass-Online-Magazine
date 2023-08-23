@@ -9,7 +9,7 @@ export default function Science(){
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        const getHomeNews = async ()=> {
+        const getScienceNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/science.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
@@ -22,7 +22,7 @@ export default function Science(){
                 console.log(error)
             }
         }
-        getHomeNews()
+        getScienceNews()
     }, []);
 
     if(isLoading){
@@ -32,7 +32,7 @@ export default function Science(){
     return (
         <>
             <FirstSection />
-            <News technology={science} />
+            <News news={science} />
             <NewsLetterComponent />
         </>
     )

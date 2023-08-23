@@ -9,7 +9,7 @@ export default function Travel(){
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        const getHomeNews = async ()=> {
+        const getTravelNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
@@ -22,7 +22,7 @@ export default function Travel(){
                 console.log(error)
             }
         }
-        getHomeNews()
+        getTravelNews()
     }, []);
 
     if(isLoading){
@@ -32,7 +32,7 @@ export default function Travel(){
     return (
         <>
             <FirstSection />
-            <News technology={travel} />
+            <News news={travel} />
             <NewsLetterComponent />
         </>
     )

@@ -15,7 +15,6 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
@@ -32,7 +31,6 @@ function App() {
           <Route path='/sports' element={<Sports /> } />
           <Route path='/fashion' element={<Fashion /> } />
         </Routes>
-        
         <Footer />
       </BrowserRouter>
       

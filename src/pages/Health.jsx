@@ -9,11 +9,10 @@ export default function Health(){
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        const getHomeNews = async ()=> {
+        const getHealthNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/health.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
-                console.log(response.data.results);
                 if(response.status == 200){
                     setHealth(response.data.results);
                     setIsLoading(false);
@@ -22,7 +21,7 @@ export default function Health(){
                 console.log(error)
             }
         }
-        getHomeNews()
+        getHealthNews()
     }, []);
 
     if(isLoading){
@@ -32,7 +31,7 @@ export default function Health(){
     return (
         <>
             <FirstSection />
-            <News technology={health} />
+            <News news={health} />
             <NewsLetterComponent />
         </>
     )

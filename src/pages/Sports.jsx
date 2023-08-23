@@ -9,7 +9,7 @@ export default function Sports(){
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        const getHomeNews = async ()=> {
+        const getSportsNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
@@ -22,7 +22,7 @@ export default function Sports(){
                 console.log(error)
             }
         }
-        getHomeNews()
+        getSportsNews()
     }, []);
 
     if(isLoading){
@@ -32,7 +32,7 @@ export default function Sports(){
     return (
         <>
             <FirstSection />
-            <News technology={sports} />
+            <News news={sports} />
             <NewsLetterComponent />
         </>
     )
