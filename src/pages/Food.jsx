@@ -14,8 +14,8 @@ export default function Food(){
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/food.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
                 console.log(response.data.results);
-                if(response.status == 200){
-                    setFood(response.data.results);
+                if(response.status === 200){
+                    setFood(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -25,14 +25,10 @@ export default function Food(){
         getHomeNews()
     }, []);
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-
     return (
         <>
             <FirstSection />
-            <News news={food} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={food} />}
             <NewsLetterComponent />
         </>
     )

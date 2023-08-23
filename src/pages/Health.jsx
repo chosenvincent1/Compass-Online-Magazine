@@ -13,8 +13,8 @@ export default function Health(){
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/health.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
-                if(response.status == 200){
-                    setHealth(response.data.results);
+                if(response.status === 200){
+                    setHealth(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -24,14 +24,10 @@ export default function Health(){
         getHealthNews()
     }, []);
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-
     return (
         <>
             <FirstSection />
-            <News news={health} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={health} />}
             <NewsLetterComponent />
         </>
     )

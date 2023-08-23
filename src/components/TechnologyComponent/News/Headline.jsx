@@ -3,16 +3,16 @@ import Description from "./Description";
 import TextTitle from "./TextTitle";
 
 export default function Headline({news}){
-    const firstNews = news[0];
+    const firstNews = news.results[0];
 
     return (
         <section className="flex gap-[39px] mb-[55px] ">
-            <TextTitle firstNews={firstNews}  />
+            <TextTitle titleLetter={news.section}  />
             <div>
                 <Description firstNews={firstNews}  />
 
-                {news.slice(0, 9).map((item, index)=> {
-                    return <Card key={index} date={item.published_date} title={item.title} image={item.multimedia[0]} byline={item.byline} abstract={item.abstract}  />
+                {news.results.slice(0, 9).map((item, index)=> {
+                    return <Card key={index} url={item.url} date={item.published_date} title={item.title} byline={item.byline} abstract={item.abstract}  />
                 })}
             </div>
         </section>

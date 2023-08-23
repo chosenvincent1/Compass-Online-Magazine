@@ -13,9 +13,8 @@ export default function Fashion(){
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/fashion.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
-                console.log(response.data.results);
-                if(response.status == 200){
-                    setFashion(response.data.results);
+                if(response.status === 200){
+                    setFashion(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -25,14 +24,11 @@ export default function Fashion(){
         getHomeNews()
     }, []);
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-
     return (
         <>
             <FirstSection />
-            <News news={fashion} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={fashion} />}
+            
             <NewsLetterComponent />
         </>
     )

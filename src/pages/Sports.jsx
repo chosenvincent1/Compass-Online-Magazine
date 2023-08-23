@@ -13,9 +13,8 @@ export default function Sports(){
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
-                console.log(response.data.results);
-                if(response.status == 200){
-                    setSports(response.data.results);
+                if(response.status === 200){
+                    setSports(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -25,14 +24,10 @@ export default function Sports(){
         getSportsNews()
     }, []);
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-
     return (
         <>
             <FirstSection />
-            <News news={sports} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={sports} />}
             <NewsLetterComponent />
         </>
     )

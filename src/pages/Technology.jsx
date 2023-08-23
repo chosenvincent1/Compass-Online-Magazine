@@ -12,9 +12,10 @@ export default function Technology(){
         const getHomeNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
-    
-                if(response.status == 200){
-                    setNews(response.data.results);
+                
+                console.log(response.data)
+                if(response.status === 200){
+                    setNews(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -24,15 +25,10 @@ export default function Technology(){
         getHomeNews()
     }, []);
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-
-    // console.log(technology)
     return (
         <>
             <FirstSection />
-            <News news={news} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={news} />}
             <NewsLetterComponent />
         </>
     )

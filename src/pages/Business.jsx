@@ -12,11 +12,9 @@ export default function Business(){
         const getHomeNews = async ()=> {
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/business.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
-
-                console.log(response.data.results)
     
-                if(response.status == 200){
-                    setBusiness(response.data.results);
+                if(response.status === 200){
+                    setBusiness(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -26,14 +24,11 @@ export default function Business(){
         getHomeNews()
     }, []);
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-
     return (
         <>
             <FirstSection />
-            <News news={business} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={business} />}
+
             <NewsLetterComponent />
         </>
     )
