@@ -6,8 +6,6 @@ export default function Card({image, byline, title, date, abstract}){
     const day = publishDate.getDay()
     const formattedDate = `${month} ${day}, ${year}`
 
-    console.log(image.url)
-
     return (
         <section className="flex gap-[20px] mb-[30px] text-elipsis font-Montserrat  w-[530px] ">
 
