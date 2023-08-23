@@ -1,9 +1,10 @@
 
 export default function NewsCard(props){
+    console.log(props.image)
     return (
-        <section className="flex gap-[20px] mb-[30px] font-Montserrat w-[650px] h-[100px] ">
-            <div className="w-[100px] h-[100px] bg-[#D2D8E1] ">
-                {/* <img src="" alt="" /> */}
+        <section className="flex gap-[20px] mb-[30px] font-Montserrat w-[650px] ">
+            <div className="w-full max-w-[100px] h-[100px] bg-[#D2D8E1] ">
+                <img src={props.image.url} alt="" className="h-[100%] w-[100%]" />
             </div>
 
             <div>

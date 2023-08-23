@@ -3,30 +3,29 @@ import NewsTitleText from "./NewsTitleText";
 import NewsDescription from "./NewsDescription";
 
 export default function NewsHeadline({technology, food}){
-    const firstTech = technology[0];
-    const firstFood = food.results[0]
+    const firstTech = technology.results[0];
+    const firstFood = food.results[0];
 
-    console.log(food.results)
+    // console.log(firstTech)
+    // console.log(firstFood)
 
     return (
         <>
             <section className="flex gap-[39px] mb-[55px] ">
-                <NewsTitleText firstItem={firstTech}  />
+                <NewsTitleText titleLetter={technology.section}  />
                 <div>
-                    <NewsDescription firstItem={firstTech} />
+                    <NewsDescription section={technology.section} firstItem={firstTech} />
 
-                    {technology.slice(0, 3).map(item => <NewsCard title={item.title} abstract={item.abstract} published_date={item.published_date} byline={item.byline} />)}
-                    
+                    {technology.results.slice(0, 3).map((item, index) => <NewsCard key={index} title={item.title} abstract={item.abstract} published_date={item.published_date} byline={item.byline} image={item.multimedia[0]} />)}
                 </div>
             </section>
 
             <section className="flex gap-[39px] mb-[55px] ">
-                {/* <NewsTitleText firstItem={firstFood}  /> */}
+                <NewsTitleText titleLetter={food.section}  />
                 <div>
-                    <NewsDescription firstItem={firstFood} />
+                    <NewsDescription section={food.section} firstItem={firstFood} />
 
-                    {/* {food.results.slice(0, 3).map(item => <NewsCard title={item.title} abstract={item.abstract} published_date={item.published_date} byline={item.byline} />)} */}
-                    
+                    {food.results.slice(0, 3).map((item, index) => <NewsCard key={index} title={item.title} abstract={item.abstract} published_date={item.published_date} byline={item.byline} image={item.multimedia[0]} />)}
                 </div>
             </section>
         </>

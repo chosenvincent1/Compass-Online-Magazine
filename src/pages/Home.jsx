@@ -10,51 +10,47 @@ export default function HomePage(){
     const [technology, setTechnology] = useState([]);
     const [food, setFood] = useState([]);
     const [world, setWorld] = useState([]);
-
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(()=> {
-        const getTechNews = async ()=> {
-            try {
-                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+    const getTechNews = async ()=> {
+        try {
+            const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
 
-                console.log(response.data)
-    
-                if(response.status == 200){
-                    setTechnology(response.data.results);
-                    setIsLoading(false);
-                }
-            } catch (error) {
-                console.log(error)
+            if(response.status == 200){
+                setTechnology(response.data);
             }
+        } catch (error) {
+            console.log(error)
         }
-        getTechNews()
-    }, []);
-
-    useEffect(()=> {
-        const getFoodNews = async ()=> {
-            try {
-                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/food.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
-
-                if(response.status == 200){
-                    setFood(response.data);
-                    setIsLoading(false);
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        getFoodNews();
-    }, []);
-
-    if(isLoading) {
-        return <div>Loading...</div>
     }
+    const getFoodNews = async ()=> {
+        try {
+            const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/food.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+
+            if(response.status == 200){
+                setFood(response.data);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(()=> {
+        const getData = async ()=> {
+            try {
+                await Promise.all([getTechNews(), getFoodNews()]);
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getData();
+    }, []);
 
     return (
         <>
             <LandingPage />
-            <NewsSection food={food} technology={technology}   />
+            <NewsSection isLoading={isLoading} food={food} technology={technology}   />
             <NewsLetterComponent />
         </>
     )
