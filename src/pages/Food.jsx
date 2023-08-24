@@ -27,7 +27,7 @@ export default function Food(){
 
     return (
         <>
-            <FirstSection />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <FirstSection image={food.results[0]}  />}
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={food} />}
             <NewsLetterComponent />
         </>

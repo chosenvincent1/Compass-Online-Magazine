@@ -9,7 +9,7 @@ export default function PopularInformation(){
     useEffect(()=> {
         const getHomeNews = async ()=> {
             try {
-                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
+                const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
     
                 if(response.status == 200){
                     setHome(response.data.results);
@@ -33,7 +33,7 @@ export default function PopularInformation(){
 
             {home.slice(0, 3).map((item, index)=> {
                 let image = item.multimedia[0]
-                if(item.section == 'technology' || item.section == 'business'){
+
                     return (
                         <div key={index} className="mb-[64.32px]">
                             <div className="relative ">
@@ -52,7 +52,6 @@ export default function PopularInformation(){
                             <Link to={`/${item.section}`} className="uppercase font-[700] text-[#1049CC] text-[12px] ">Go to Headline</Link>
                         </div>
                     )
-                }
             })}
 
             

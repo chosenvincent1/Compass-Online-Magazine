@@ -26,7 +26,7 @@ export default function Sports(){
 
     return (
         <>
-            <FirstSection />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <FirstSection image={sports.results[0]}  />}
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={sports} />}
             <NewsLetterComponent />
         </>

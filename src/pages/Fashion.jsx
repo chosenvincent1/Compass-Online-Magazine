@@ -26,7 +26,7 @@ export default function Fashion(){
 
     return (
         <>
-            <FirstSection />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <FirstSection image={fashion.results[0]}  />}
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={fashion} />}
             
             <NewsLetterComponent />

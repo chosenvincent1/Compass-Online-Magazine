@@ -25,9 +25,10 @@ export default function Technology(){
         getHomeNews()
     }, []);
 
+
     return (
         <>
-            <FirstSection image={news.results[0].multimedia[0]} />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <FirstSection image={news.results[0]}  />}
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={news} />}
             <NewsLetterComponent />
         </>

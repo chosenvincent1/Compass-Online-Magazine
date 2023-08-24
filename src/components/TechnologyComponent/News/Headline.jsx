@@ -3,8 +3,7 @@ import Description from "./Description";
 import TextTitle from "./TextTitle";
 
 export default function Headline({news}){
-    const firstNews = news.results[0];
-    console.log(firstNews)
+    const firstNews = news.results[1];
 
     if(firstNews === null){
         return <h1>Page not Found</h1>
@@ -16,8 +15,12 @@ export default function Headline({news}){
             <div>
                 <Description title={news.section} firstNews={firstNews}  />
 
-                {news.results.slice(1, 10).map((item, index)=> {
-                    return <Card key={index} url={item.url} date={item.published_date} title={item.title} byline={item.byline} abstract={item.abstract}  />
+                {news.results.slice(2, 11).map((item, index)=> {
+                    const imageUrl = item.multimedia ? item.multimedia[0].url : '';
+                    if(imageUrl === '') {
+                        return null;
+                    }
+                    return <Card key={index} url={item.url} date={item.published_date} image={imageUrl} title={item.title} byline={item.byline} abstract={item.abstract}  />
                 })}
             </div>
         </section>

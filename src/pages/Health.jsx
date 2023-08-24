@@ -26,7 +26,7 @@ export default function Health(){
 
     return (
         <>
-            <FirstSection />
+            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <FirstSection image={health.results[1]}  />}
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={health} />}
             <NewsLetterComponent />
         </>
