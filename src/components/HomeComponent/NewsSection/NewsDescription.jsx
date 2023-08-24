@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 export default function NewsDescription({firstItem, section}){
     return (
         <div className="w-[600px] mb-[60px] ">
@@ -8,7 +8,7 @@ export default function NewsDescription({firstItem, section}){
 
             <p className="text-[18px] font-[400] text-[#5A6372] mb-[11px] ">{firstItem.abstract}</p>
 
-            <Link to={`/${section}`} className="uppercase text-[12px] font-[700] text-[#1049CC] ">Go to Headline</Link>
+            <a href={`${firstItem.url}`} className="uppercase text-[12px] font-[700] text-[#1049CC] ">Go to Headline</a>
         </div>
     )
 }

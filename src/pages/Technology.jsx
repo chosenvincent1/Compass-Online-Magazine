@@ -3,6 +3,7 @@ import FirstSection from "../components/TechnologyComponent/FirstSection/FirstSe
 import News from "../components/TechnologyComponent/News";
 import NewsLetterComponent from "../components/HomeComponent/NewsLetterComponent";
 import axios from "axios";
+import { MoonLoader } from 'react-spinners';
 
 export default function Technology(){
     const [news, setNews] = useState(null);
@@ -28,8 +29,18 @@ export default function Technology(){
 
     return (
         <>
-            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <FirstSection image={news.results[0]}  />}
-            {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={news} />}
+            {isLoading ? 
+                <div className="py-[50px] text-center flex justify-center ">
+                    <MoonLoader color="#000" loading={true} size={50} />
+                </div> : 
+                <FirstSection image={news.results[0]}  />
+            }
+            {isLoading ? 
+                <div className="py-[50px] text-center flex justify-center ">
+                    <MoonLoader color="#000" loading={true} size={50} />
+                </div> : 
+                <News news={news} />
+            }
             <NewsLetterComponent />
         </>
     )
