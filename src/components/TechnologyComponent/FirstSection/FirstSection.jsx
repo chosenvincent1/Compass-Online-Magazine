@@ -1,9 +1,9 @@
 import { FaSearch } from 'react-icons/fa';
-export default function FirstSection(){
+export default function FirstSection({image}){
     return(
         <section 
             style={{
-                backgroundImage: 'url(../images/landing-page-image.png)',
+                backgroundImage: `url(../images/landing-page-image.png)`,
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
             }} className="h-[559px] w-full py-[20px] font-Montserrat flex flex-col justify-center pl-[154px] ">

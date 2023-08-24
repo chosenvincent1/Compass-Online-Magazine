@@ -13,7 +13,7 @@ export default function Technology(){
             try {
                 const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=aslDGOntLrjgiHi0raSPx9pDCMMiP8Uy');
                 
-                console.log(response.data)
+                // console.log(response.data)
                 if(response.status === 200){
                     setNews(response.data);
                     setIsLoading(false);
@@ -27,7 +27,7 @@ export default function Technology(){
 
     return (
         <>
-            <FirstSection />
+            <FirstSection image={news.results[0].multimedia[0]} />
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={news} />}
             <NewsLetterComponent />
         </>

@@ -21,12 +21,12 @@ export default function Science(){
                 console.log(error)
             }
         }
-        getScienceNews()
+        getScienceNews();
     }, []);
 
     return (
         <>
-            <FirstSection />
+            <FirstSection  />
             {isLoading ? <div className="py-[50px] text-center font-[700] text-[50px] ">Loading...</div> : <News news={science} />}
             <NewsLetterComponent />
         </>

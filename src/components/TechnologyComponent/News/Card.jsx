@@ -12,7 +12,7 @@ export default function Card({image, url, byline, title, date, abstract}){
                 <section className="flex gap-[20px] mb-[30px] text-elipsis font-Montserrat  w-[530px] ">
 
                     <div className="w-full max-w-[100px] h-[100px] bg-[#D2D8E1] ">
-                        <img src="" alt="" className="h-[100%] w-[100%]" />
+                        <img src='' alt="" className="h-[100%] w-[100%]" />
                     </div>
 
                     <div>
